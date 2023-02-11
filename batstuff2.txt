@@ -1,0 +1,53 @@
+==> /sys/class/power_supply/BAT1/alarm <==
+0
+
+==> /sys/class/power_supply/BAT1/capacity <==
+65
+
+==> /sys/class/power_supply/BAT1/capacity_level <==
+Normal
+
+==> /sys/class/power_supply/BAT1/cycle_count <==
+-1
+
+==> /sys/class/power_supply/BAT1/energy_full <==
+5000000
+
+==> /sys/class/power_supply/BAT1/energy_full_design <==
+5000000
+
+==> /sys/class/power_supply/BAT1/energy_now <== Watt hours
+3250000
+
+==> /sys/class/power_supply/BAT1/manufacturer <==
+
+
+==> /sys/class/power_supply/BAT1/model_name <==
+Microsoft Hyper-V Virtual BatterVirtual
+
+==> /sys/class/power_supply/BAT1/power_now <==	Watts
+800000
+
+==> /sys/class/power_supply/BAT1/present <==
+1
+
+==> /sys/class/power_supply/BAT1/serial_number <==
+Virtual
+
+==> /sys/class/power_supply/BAT1/status <==
+Discharging
+
+==> /sys/class/power_supply/BAT1/technology <==
+Unknown
+
+==> /sys/class/power_supply/BAT1/type <==
+Battery
+
+==> /sys/class/power_supply/BAT1/voltage_min_design <==
+5000000
+
+==> /sys/class/power_supply/BAT1/voltage_now <==
+5000000
+
+prop vs uevent
+alarm   name

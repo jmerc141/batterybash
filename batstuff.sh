@@ -234,9 +234,9 @@ function printstuff() {
 
 	# Current / Amps
 	# precharge_current charge_term_current
+	printf '\u251c\u2500%s\n' 'Current / Amps'
 	if [ ${info['current_now']} != 'N\A' ]; then
-		printf '\u251c\u2500%s\n' 'Current / Amps'
-		printf '\u2502\t\u251c\u2500%16s%*s%g Amps\n' 'Current:' $space '' $(bc <<<"scale=6;${info['current_now']} / 1000000")
+0		printf '\u2502\t\u251c\u2500%16s%*s%g Amps\n' 'Current:' $space '' $(bc <<<"scale=6;${info['current_now']} / 1000000")
 		if [ ${info['current_max']} != 'N\A' ]; then
 			printf '\u2502\t\u251c\u2500%16s%*s%g Amps\n' 'Current Maximum:' $space '' ${info['current_max']}
 		fi
@@ -257,7 +257,11 @@ function printstuff() {
 		fi
 	else
 		# calculate amps
-		echo calc
+		if [ ${info['power_now']} != 'N\A' ] && [ ${info['voltage_now']} != 'N\A' ]; then
+			amp=$(bc <<<"scale=3;${info['power_now']} / ${info['voltage_now']}")
+			printf '\u2502\t\u251c\u2500%16s%*s%g Amps\n' 'Current:' $space '' $amp
+		fi
+		
 	fi
 
 	# Amp Hour info
@@ -310,7 +314,7 @@ function printstuff() {
 			printf '\u2502\t\u251c\u2500%16s%*s%g Wh\n' 'Empty Ah:' $space '' $(bc <<<"scale=6;${info['charge_empty_design']} / 1000000")
 		fi
 		if [ ${info['energy_full']} != 'N\A' ] && [ ${info['energy_full_design']} != 'N\A' ]; then
-			bathealth=$(bc <<<"scale=6;${info['energy_full_design']} / ${info['energy_full']}")
+			bathealth=$(bc <<<"scale=6;${info['energy_full']} / ${info['energy_full_design']}")
 			printf '\u2502\t\u251c\u2500%16s%*s%g %%\n' 'Capacity Health:' $space '' $(bc <<<"scale=6;$bathealth * 100")
 		fi
 	else
